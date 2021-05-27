@@ -1,0 +1,11 @@
+.employeeGroup {
+  text-align: left;
+  width: 19%;
+  padding: 4px;
+  min-width: 100px;
+}
+
+.employeeGroup__letter {
+  font-size: 24px;
+  margin-bottom: 6px;
+}

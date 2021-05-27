@@ -1,7 +1,12 @@
+import { Employees } from './components/Employees/Employees';
+
+import 'normalize.css';
+import './base.css';
+
 function App() {
   return (
     <div className="App">
-      <h1>Employeezzz!</h1>
+      <Employees />
     </div>
   );
 }

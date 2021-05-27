@@ -7,10 +7,11 @@ export const setEmployees = (employees: EmployeesType[]) => ({
   },
 });
 
-export const updateEmployee = (id: string) => ({
+export const updateEmployee = (id: string, value: boolean) => ({
   type: 'UPDATE_EMPLOYEE',
   payload: {
     id,
+    value,
   },
 });
 

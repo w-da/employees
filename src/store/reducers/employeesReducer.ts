@@ -1,13 +1,7 @@
 import { Action } from '../../types/types';
-import { EmployeesType } from '../../types/types';
+import { InitialEmployeesState } from '../../types/types';
 
-type InitialState = {
-  employees: EmployeesType[];
-  error: null | string;
-  isLoading: boolean;
-};
-
-const initialState: InitialState = {
+const initialState: InitialEmployeesState = {
   employees: [],
   error: null,
   isLoading: false,
@@ -18,6 +12,23 @@ export const employeesReducer = (state = initialState, action: Action) => {
     case 'SET_EMPLOYEES':
       return {
         employees: action.payload.employees,
+        error: null,
+        isLoading: false,
+      };
+
+    case 'UPDATE_EMPLOYEE':
+      return {
+        employees: state.employees.map(employee => {
+          if (employee.id === action.payload.id) {
+            const updatedEmployee = {
+              ...employee,
+              isActive: action.payload.value,
+            };
+            return updatedEmployee;
+          }
+
+          return employee;
+        }),
         error: null,
         isLoading: false,
       };

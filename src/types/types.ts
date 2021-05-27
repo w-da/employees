@@ -5,6 +5,27 @@ export type EmployeesType = {
   firstName: string;
   lastName: string;
   dob: string;
+  isActive: boolean;
+};
+
+// Normalized Employees Type
+
+export type NormalizedEmployeesType = {
+  [key: string]: EmployeesType[];
+};
+
+// InitialState
+
+export type InitialEmployeesState = {
+  employees: EmployeesType[];
+  error: null | string;
+  isLoading: boolean;
+};
+
+// Store
+
+export type StoreType = {
+  employees: InitialEmployeesState;
 };
 
 // Action
@@ -20,6 +41,7 @@ type UpdateEmployeeAction = {
   type: 'UPDATE_EMPLOYEE';
   payload: {
     id: string;
+    value: boolean;
   };
 };
 
