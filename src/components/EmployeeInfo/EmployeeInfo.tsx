@@ -20,7 +20,11 @@ export function EmployeeInfo({ employee }: EmployeeInfoPropsType) {
 
   return (
     <li className={styles.employeeInfo}>
-      <p className={styles.employeeInfo__name}>
+      <p
+        className={`${styles.employeeInfo__name} ${
+          employee.isActive ? styles.active : ''
+        }`}
+      >
         {employee.lastName} {employee.firstName}
       </p>
       <form>
@@ -32,7 +36,13 @@ export function EmployeeInfo({ employee }: EmployeeInfoPropsType) {
           defaultChecked={employee.isActive ? false : true}
           onChange={handleActiveChange}
         />
-        <label htmlFor={`${employee.id}False`}>Not active</label>
+        <label
+          htmlFor={`${employee.id}False`}
+          className={styles.employeeInfo__label}
+        >
+          {' '}
+          Not active
+        </label>
         <br />
         <input
           type="radio"
@@ -42,7 +52,13 @@ export function EmployeeInfo({ employee }: EmployeeInfoPropsType) {
           defaultChecked={employee.isActive ? true : false}
           onChange={handleActiveChange}
         />
-        <label htmlFor={`${employee.id}True`}>Active</label>
+        <label
+          htmlFor={`${employee.id}True`}
+          className={styles.employeeInfo__label}
+        >
+          {' '}
+          Active
+        </label>
       </form>
     </li>
   );

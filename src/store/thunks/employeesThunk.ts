@@ -1,13 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
+import { BASE_URL } from '../../helpers/constants';
 import { sortEmployees } from '../../helpers/employeesHelpers';
 import {
   setEmployees,
   setError,
   setLoading,
 } from '../actions/employeesActions';
-
-const BASE_URL =
-  'https://yalantis-react-school-api.yalantis.com/api/task0/users';
 
 export const getEmployees = () => (dispatch: any) => {
   dispatch(setLoading());

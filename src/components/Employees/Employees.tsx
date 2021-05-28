@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Loader } from '../Loader/Loader';
 import { EmployeesList } from '../EmployeesList/EmployeesList';
 import { normalizeEmployees } from '../../helpers/employeesHelpers';
 
@@ -26,7 +27,7 @@ export function Employees() {
   }, [dispatch]);
 
   if (error) return <h2>{error}</h2>;
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) return <Loader />;
 
   const normalizedEmployees = normalizeEmployees(employees);
 
