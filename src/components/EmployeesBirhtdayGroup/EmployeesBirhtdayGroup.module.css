@@ -1,0 +1,11 @@
+.employeesBirthdayGroup {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.employeesBirthdayGroup__month {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
