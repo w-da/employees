@@ -13,4 +13,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run deploy`
 
-The script make deploy to GitHub-pages.
+The script makes deploy of the app to GitHub-pages.
