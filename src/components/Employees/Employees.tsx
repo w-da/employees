@@ -14,6 +14,7 @@ import { getEmployees } from '../../store/thunks/employeesThunk';
 import { BirthdayList } from '../BirthdayList/BirthdayList';
 
 import styles from './Employees.module.css';
+import { setEmployees } from '../../store/actions/employeesActions';
 
 export function Employees() {
   const employees = useSelector(getEmployeesFromStore);
@@ -23,11 +24,21 @@ export function Employees() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getEmployees());
+    const employeesFromStorage = localStorage.getItem('employees');
+
+    if (!employeesFromStorage || JSON.parse(employeesFromStorage).length === 0)
+      dispatch(getEmployees());
+
+    if (employeesFromStorage)
+      dispatch(setEmployees(JSON.parse(employeesFromStorage)));
   }, [dispatch]);
 
+  useEffect(() => {
+    localStorage.setItem('employees', JSON.stringify(employees));
+  }, [employees]);
+
   if (error) return <h2>{error}</h2>;
-  if (isLoading) return <Loader />;
+  if (isLoading || employees.length === 0) return <Loader />;
 
   const normalizedEmployees = normalizeEmployees(employees);
 

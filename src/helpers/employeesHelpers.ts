@@ -32,7 +32,7 @@ export function getMonthsFromCurrent() {
   const currentMonth = moment().month();
 
   const m = moment();
-  for (var i = currentMonth; i < currentMonth + 12; i++) {
+  for (let i = currentMonth; i < currentMonth + 12; i++) {
     result.push(m.month(i).format('MMMM'));
   }
 
